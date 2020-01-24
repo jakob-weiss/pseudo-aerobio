@@ -22,7 +22,7 @@ The `/NextSeq2/<expt_title>` directory should then look like this before running
 
 <img src="https://raw.githubusercontent.com/weissjy/pseudo-aerobio/master/images/example_NextSeq2_dir.png" align="center" >
 
-To run, do `/NextSeq2/<expt_title>/pseudo-phase-0.py`. The script will take a few minutes to copy all of the `.fastq` files.
+To run, do `cd /NextSeq2/<expt_title>`, then `chmod +x pseudo-phase-0.py`, then `./pseudo-phase-0.py`. The script will take a few minutes to copy all of the `.fastq` files.
 
 Once finished, check that the relevant directories have been properly created in `/ExpOut/<expt_title>`. In particular, check that the `.fastq` files have been copied, grouped, and renamed correctly in `/ExpOut/<expt_title>/Samples`, which should contain directories for all of the sample names listed in `/NextSeq2/<expt_title>/SampleSheet.csv`.
 
