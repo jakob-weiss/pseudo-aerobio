@@ -14,13 +14,13 @@ the current `.fastq` name in the first column and the corresponding sample `.fas
 
 The `.fastq` names listed in the first column should match up to the names of the `.fastq` files in `/NextSeq2/<expt_title>/Data/Intensities/BaseCalls`, as shown below:
 
-<img src="https://raw.githubusercontent.com/weissjy/pseudo-aerobio/master/images/readme_BaseCalls.png" align="center" height="100" width="300" >
+<img src="https://raw.githubusercontent.com/weissjy/pseudo-aerobio/master/images/readme_BaseCalls.png" align="center" >
 
 Note that these `.fastq` files should be demultiplexed beforehand. If the dataset you're working with has one `.fastq` file per sample, it's safe to assume the files are demultiplexed.
 
 The `/NextSeq2/<expt_title>` directory should then look like this before running the script:
 
-<img src="https://raw.githubusercontent.com/weissjy/pseudo-aerobio/master/images/example_NextSeq2_dir.png" align="center" height="50" width="300" >
+<img src="https://raw.githubusercontent.com/weissjy/pseudo-aerobio/master/images/example_NextSeq2_dir.png" align="center" >
 
 To run, do `/NextSeq2/<expt_title>/pseudo-phase-0.py`. The script will take a few minutes to copy all of the `.fastq` files.
 
