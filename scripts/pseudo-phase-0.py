@@ -2,6 +2,15 @@
 
 import csv, numpy, os, shutil, io
 from subprocess import call
+from optparse import OptionParser
+
+options = OptionParser(usage='%prog [-g]',
+                       description="Specify -gz for working with gzip files")
+
+options.add_option("-g",action="store_true",dest="gzipped", default=False)
+
+opts, args = options.parse_args()
+iszipped = opts.gzipped
 
 # get expname from exp-samplesheet
 with io.open("Exp-SampleSheet.csv", "r", encoding='utf-8-sig') as f:
@@ -42,6 +51,9 @@ for sampleName in srr2Sample[:,1]:
     sheetIndex = expSheet[:,1].tolist().index(sampleName)
     tempi7Tag = expSheet[sheetIndex,2]
     tempi5Tag = expSheet[sheetIndex,3]
-    shutil.copy("/NextSeq2/" + expName + "/Data/Intensities/BaseCalls/" + srr2Sample[i,0] + ".fastq", "/ExpOut/" + expName + "/Samples/" + repDictionary[tempi7Tag] + "/" + sampleName + "-" + tempi5Tag + ".fastq")
+    if iszipped:
+        shutil.copy("/NextSeq2/" + expName + "/Data/Intensities/BaseCalls/" + srr2Sample[i,0] + ".fastq.gz", "/ExpOut/" + expName + "/Samples/" + repDictionary[tempi7Tag] + "/" + sampleName + "-" + tempi5Tag + ".fastq.gz")
+    else:
+        shutil.copy("/NextSeq2/" + expName + "/Data/Intensities/BaseCalls/" + srr2Sample[i,0] + ".fastq", "/ExpOut/" + expName + "/Samples/" + repDictionary[tempi7Tag] + "/" + sampleName + "-" + tempi5Tag + ".fastq")
     i+=1
     
